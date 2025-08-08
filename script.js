@@ -1,4 +1,3 @@
-// Simple Calculator JavaScript
 const body = document.body;
 const themeBtn = document.getElementById('themeBtn');
 const exprEl = document.getElementById('expr');
@@ -7,12 +6,12 @@ const outEl = document.getElementById('output');
 let expression = '';
 let result = null;
 
-// Load saved theme
+// Loaading theme
 const savedTheme = localStorage.getItem('calc-theme') || 'light';
 body.setAttribute('data-theme', savedTheme);
 themeBtn.setAttribute('aria-pressed', String(savedTheme === 'dark'));
 
-// Theme toggle
+// Theme-toggle
 themeBtn.addEventListener('click', () => {
   const currentTheme = body.getAttribute('data-theme');
   const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -22,13 +21,13 @@ themeBtn.addEventListener('click', () => {
   themeBtn.setAttribute('aria-pressed', String(nextTheme === 'dark'));
 });
 
-// Update display
+// Updates display
 function updateDisplay() {
   exprEl.textContent = expression || '\u00A0';
   outEl.textContent = (result === null) ? (expression || '0') : String(result);
 }
 
-// Safe evaluation
+// Safe evluation
 function safeEval(expr) {
   try {
     // Handle percentage
@@ -46,7 +45,7 @@ function safeEval(expr) {
   }
 }
 
-// Handle number and operator input
+// This handle number and operator input
 function pressValue(v) {
   // Prevent multiple leading zeros
   if(v === '.' && /\.[0-9]*$/.test(expression)) return;
@@ -66,7 +65,7 @@ function pressValue(v) {
   updateDisplay();
 }
 
-// Handle calculator actions
+// calculator actions
 function handleAction(action) {
   switch(action) {
     case 'clear':
@@ -123,7 +122,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Keyboard support
+// keyboard support
 window.addEventListener('keydown', (ev) => {
   if (ev.target.tagName === 'INPUT') return;
   
@@ -150,5 +149,5 @@ window.addEventListener('keydown', (ev) => {
   }
 });
 
-// Initial display
+// Initial or start display
 updateDisplay();
