@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A modern, responsive calculator with dark/light theme support" />
+  <meta name="author" content="Ujwal" />
+  <meta name="theme-color" content="#3b82f6" />
+  <title>Modern Calculator - Made by Ujwal</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+  
+  <!-- Font optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+  <main class="calculator" role="application" aria-label="Modern Calculator">
+    <header class="head">
+      <div class="header-content">
+        <h1 class="title">Calculator</h1>
+        <p class="small">Simple • Dark & Light</p>
+      </div>
+      <button 
+        class="theme-toggle" 
+        id="themeBtn" 
+        aria-pressed="false" 
+        aria-label="Toggle dark and light theme"
+        title="Switch between dark and light theme">
+        <span class="dot" id="themeDot" aria-hidden="true"></span>
+        <span class="small">Switch Mode</span>
+      </button>
+    </header>
+
+    <section class="display" id="display" aria-live="polite" aria-label="Calculator display">
+      <div class="expr" id="expr" aria-label="Expression">&nbsp;</div>
+      <div class="out" id="output" aria-label="Result">0</div>
+    </section>
+
+    <section class="keys" role="group" aria-label="Calculator keypad">
+      <!-- Row 1: Clear, Backspace, Percent, Divide -->
+      <button class="key clear" data-action="clear" aria-label="Clear all">C</button>
+      <button class="key backspace" data-action="back" aria-label="Backspace">⌫</button>
+      <button class="key percent" data-action="percent" aria-label="Percentage">%</button>
+      <button class="key operator" data-value="/" aria-label="Divide">÷</button>
+
+      <!-- Row 2: 7, 8, 9, Multiply -->
+      <button class="key number" data-value="7" aria-label="Seven">7</button>
+      <button class="key number" data-value="8" aria-label="Eight">8</button>
+      <button class="key number" data-value="9" aria-label="Nine">9</button>
+      <button class="key operator" data-value="*" aria-label="Multiply">×</button>
+
+      <!-- Row 3: 4, 5, 6, Subtract -->
+      <button class="key number" data-value="4" aria-label="Four">4</button>
+      <button class="key number" data-value="5" aria-label="Five">5</button>
+      <button class="key number" data-value="6" aria-label="Six">6</button>
+      <button class="key operator" data-value="-" aria-label="Subtract">−</button>
+
+      <!-- Row 4: 1, 2, 3, Add -->
+      <button class="key number" data-value="1" aria-label="One">1</button>
+      <button class="key number" data-value="2" aria-label="Two">2</button>
+      <button class="key number" data-value="3" aria-label="Three">3</button>
+      <button class="key operator" data-value="+" aria-label="Add">+</button>
+
+      <!-- Row 5: 0, Decimal, Equals -->
+      <button class="key number wide" data-value="0" aria-label="Zero">0</button>
+      <button class="key decimal" data-value="." aria-label="Decimal point">.</button>
+      <button class="key danger" data-action="equals" aria-label="Calculate result">=</button>
+    </section>
+
+    <footer class="footer">
+      <p>💡 Tip: Use keyboard shortcuts (numbers, +-*/ Enter for =, Backspace, Esc to clear)</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
